@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="lg:col-span-4 flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-tr from-pink-500 to-blue-500 rounded-lg" />
-              <span className="font-bold text-xl">Programming<span className="text-gray-400">Hero</span></span>
+              <span className="font-bold text-xl">Hire<span className="text-gray-400">Loop</span></span>
             </div>
             <p className="text-gray-400 text-sm max-w-xs">
               The AI-native career platform. Built for people who take their work seriously.
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-sm text-gray-500 text-center">
-            <p>© 2024 — Programming Hero</p>
+            <p>© 2024 — Hire Loop</p>
             <div className="flex gap-6">
               <Link href="#" className="hover:text-white transition-colors">Terms</Link>
               <Link href="#" className="hover:text-white transition-colors">Privacy</Link>

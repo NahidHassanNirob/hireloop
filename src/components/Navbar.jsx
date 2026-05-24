@@ -16,7 +16,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2">
           <div  className="w-8 h-8 bg-gradient-to-tr from-pink-500 to-blue-500 rounded-lg" />
           <span className="text-white font-bold text-xl tracking-tight">
-            Programming<span className="text-gray-400">Hero</span>
+            Hire<span className="text-gray-400">Loop</span>
           </span></Link>
         </div>
 
