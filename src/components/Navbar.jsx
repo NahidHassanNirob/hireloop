@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full px-4 py-6 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
         
         {/* Left: Brand */}
         <div className="">
