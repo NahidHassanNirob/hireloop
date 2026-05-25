@@ -1,6 +1,7 @@
 'use client'
 import { Check, Zap, BarChart3, Crown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 export default function PricingSection() {
   const [billing, setBilling] = useState("monthly");
@@ -49,7 +50,7 @@ export default function PricingSection() {
         {/* Plans Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, idx) => (
-            <div key={idx} className={`p-8 rounded-3xl border ${plan.highlight ? "bg-[#1a1a1a] border-blue-500/50" : "bg-transparent border-white/20"}`}>
+            <motion.div key={idx} whileHover={{ scale: 1.02 }} className={`p-8 rounded-3xl border ${plan.highlight ? "bg-[#1a1a1a] border-blue-500/50" : "bg-transparent border-white/20"}`}>
               <div className="flex justify-between items-start mb-6">
                 <plan.icon size={24} className="text-gray-400" />
                 <h3 className="text-xl font-semibold">{plan.name}</h3>
@@ -63,7 +64,7 @@ export default function PricingSection() {
                 ))}
               </ul>
               <button className={`w-full py-4 rounded-xl ${plan.highlight ? "bg-white" : "bg-white/20 text-white"} text-black font-semibold hover:bg-gray-200 transition`}>Choose This Plan </button>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

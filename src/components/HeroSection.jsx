@@ -1,3 +1,4 @@
+'use client'
 import {
   Search,
   MapPin,
@@ -8,6 +9,7 @@ import {
 } from "lucide-react";
 import bgImage from "@/images/globe.png";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function HeroSection() {
   const stats = [
@@ -92,7 +94,9 @@ export default function HeroSection() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div
+              <motion.div
+              
+                whileHover={{ y: -10 }}
                 key={index}
                 className="bg-[#1a1a1a]/80 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:border-blue-500/30 transition-all duration-300"
               >
@@ -101,7 +105,7 @@ export default function HeroSection() {
                   {stat.count}
                 </h3>
                 <p className="text-gray-400 font-medium">{stat.label}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

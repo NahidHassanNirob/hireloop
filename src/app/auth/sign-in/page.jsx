@@ -19,6 +19,10 @@ export default function SignIn() {
         onSuccess:()=>{
             router.push('/')
             router.refresh()
+        },
+        onError:(er)=>{
+           toast.error(er)
+           
         }
     });
     setLoading(false);

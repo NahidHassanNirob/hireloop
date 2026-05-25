@@ -1,9 +1,14 @@
+'use client'
 import Image from "next/image";
-import ctaBg from "@/images/cta-bg.png"; // আপনার গ্রিড ইমেজ
+import ctaBg from "@/images/cta-bg.png";
+import { motion } from "motion/react"; 
+
 
 export default function CTASection() {
   return (
-    <section className="relative w-full px-4 overflow-hidden bg-[#050505] py-20 md:py-28">
+    <motion.section initial={{ opacity: 0, scale: 0.9 }} 
+  whileInView={{ opacity: 1, scale: 1 }} 
+  transition={{ duration: 0.5 }} className="relative w-full px-4 overflow-hidden bg-[#050505] py-20 md:py-28">
       {/* Background Container */}
       <div className="absolute inset-0 z-0">
         {/* গ্র্যাডিয়েন্ট গ্লো: মোবাইলে ছোট এবং ডেস্কটপে বড় */}
@@ -45,6 +50,6 @@ export default function CTASection() {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

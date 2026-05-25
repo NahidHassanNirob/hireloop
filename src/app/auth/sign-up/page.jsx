@@ -34,6 +34,9 @@ export default function SignUp() {
             authClient.signOut()
             router.push('/auth/sign-in')
             router.refresh()
+        },
+        onError:(er)=>{
+            toast.error(er)
         }
     });
 
