@@ -15,7 +15,11 @@ export default function FeaturesSection() {
   return (
     <section className="bg-[#050505] py-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-3xl md:text-5xl font-bold text-white mb-16">Everything you need to succeed</h2>
+        <div className="text-center mb-12">
+          <span className="text-blue-500 font-semibold tracking-widest uppercase text-sm">Features</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4">Everything you need to succeed</h2>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((item, idx) => (
             <div key={idx} className="bg-[#1a1a1a] p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all">
