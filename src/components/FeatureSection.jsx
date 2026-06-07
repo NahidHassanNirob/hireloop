@@ -14,7 +14,7 @@ export default function FeaturesSection() {
     { icon: TrendingUp, title: "Career Growth", desc: "Boost your career with quick interview tips." },
   ];
 
-  // স্ট্যাগার অ্যানিমেশনের জন্য কন্টেইনার
+ 
   const container = {
     hidden: { opacity: 0 },
     show: { 
@@ -23,7 +23,7 @@ export default function FeaturesSection() {
     }
   };
 
-  // প্রতিটি কার্ডের অ্যানিমেশন
+
   const item = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }

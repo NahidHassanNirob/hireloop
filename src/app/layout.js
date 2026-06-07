@@ -1,3 +1,5 @@
+import dns from 'node:dns';
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -30,8 +32,8 @@ export default function RootLayout({ children }) {
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
-        <Toaster position="top-center" richColors closeButton/>
-        </body>
+       <Toaster richColors closeButton  />
+      </body>
     </html>
   );
 }
