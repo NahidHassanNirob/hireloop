@@ -1,11 +1,14 @@
 "use client";
 
 import React from "react";
-import { Button } from "@heroui/react";
+import { Button ,Toast,toast} from "@heroui/react";
 import { Briefcase, Globe } from "@gravity-ui/icons";
+import { createJob } from "@/lib/action/jobs";
+import { useRouter } from "next/navigation";
+
 
 export default function PostJobPage() {
-  // ডার্ক মোড ইনপুট ফিল্ড ও টেক্সটএরিয়ার স্ট্যান্ডার্ড Tailwind ক্লাসেস
+  const router=useRouter()
   const textInputClass =
     "w-full text-white bg-[#1c1c1e] border border-zinc-800 hover:bg-[#242426] focus:border-zinc-600 focus:outline-none rounded-lg h-12 px-3 text-sm placeholder:text-zinc-600 transition-all";
   const textAreaClass =
@@ -13,18 +16,29 @@ export default function PostJobPage() {
   const selectBoxClass =
     "w-full bg-[#1c1c1e] border border-zinc-800 hover:bg-[#242426] focus:border-zinc-600 focus:outline-none h-12 rounded-lg px-3 text-white text-sm cursor-pointer appearance-none transition-all";
 
-  // ফর্ম সাবমিট হ্যান্ডলার (কনসোল প্রিন্ট করার জন্য)
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const formValues = Object.fromEntries(formData.entries());
-
-    // রিমোট চেকবক্স ট্রু বা ফলস হ্যান্ডেল করার জন্য
     formValues.isRemote = formData.get("isRemote") === "on";
+    
+    const playLode = {
+      ...formValues,
+      status: "active",
+      companyId: "123",
+      isPublicVisible: "true",
+    };
 
-    console.log(formValues);
-  };
+    try {
+        const sendData = await createJob(playLode);    
+        toast.success('Job posted successfully!');
+        router.refresh();
+        
+    } catch (error) {
+        toast.error('Something went wrong!');
+    }
+};
 
   return (
     <div className="min-h-screen bg-[#0d0d0e] text-white py-12 px-4 sm:px-6 lg:px-8 font-sans">
@@ -52,7 +66,7 @@ export default function PostJobPage() {
         </div>
 
         {/* Main Form Elements Layout */}
-        <form onSubmit={handleSubmit} className="space-y-8" validationBehavior="aria">
+        <form onSubmit={handleSubmit} className="space-y-8">
           {/* SECTION 1: Job Information */}
           <div className="space-y-6 w-full">
             <h2 className="text-lg font-medium text-zinc-300 border-b border-zinc-900 w-full pb-2 mb-2">
