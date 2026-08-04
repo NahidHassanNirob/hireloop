@@ -6,3 +6,12 @@ export const getJob = async (companyId="", status="") => {
   );
   return res.json();
 };
+
+export const getRecruiterJobs=async(companyId)=>{
+  console.log(companyId," id is ")
+  if(!companyId){
+    return [];
+  }
+  const res=await fetch(`${baseurl}/api/jobs?companyId=${companyId}`,{cache:"no-store"})
+  return res.json();
+}

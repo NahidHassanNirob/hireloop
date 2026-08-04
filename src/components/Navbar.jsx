@@ -59,7 +59,7 @@ export default function Navbar() {
             Browse Jobs
           </Link>
           <Link
-            href="/company"
+            href="/dashboard/recruiter/company"
             className="text-white text-sm hover:text-blue-400 transition-colors"
           >
             Company

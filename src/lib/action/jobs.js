@@ -1,13 +1,12 @@
 "use server";
-const base_url=process.env.NEXT_PUBLIC_BASE_URL;
-export const createJob = async (newJob) => {
-    console.log('new post is', newJob);
-    const res=await fetch(`${base_url}/api/jobs`,{
-        method:"POST",
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(newJob)
-    })
-    return res.json();
+
+import { serverMutation } from "../core/server";
+
+export const createJob = async (playLode) => {
+    return await serverMutation('/api/jobs',playLode)
 };
+
+export const createCompanies=async(newCompanies)=>{
+    return await serverMutation('/api/companies',newCompanies)
+}
+

@@ -1,11 +1,21 @@
 
-import { getJob } from "@/lib/fetching/job";
+
 import React from "react";
 import { Table } from "@heroui/react";
+import { getSession } from '@/lib/core/session';
+import { getRecruiterJobs } from "@/lib/fetching/job";
+import { getLoggedinRecruiterCompany, getRecruiterCompinies } from "@/lib/action/companies";
+
 
 const RecruiterJobs = async () => {
-  const getAllJobs = await getJob();
-  console.log(getAllJobs);
+  
+  
+  const company= await getLoggedinRecruiterCompany();
+  console.log(company)
+  const getAllJobs=company?._id ? await getRecruiterJobs(company._id): [];
+  console.log(getAllJobs,"all jobs is", company?._id)
+  
+  
   return (
     <div>
       <div>
